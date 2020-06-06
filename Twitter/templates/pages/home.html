@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Welcome</h1>
+
+<script>
+  const xhr = new XMLHttpRequest();
+  const method = "GET";
+  const url = "/tweets/";
+  const responseType = "json";
+
+  xhr.responseType = responseType;
+  xhr.open(method, url);
+
+  xhr.onload = function(){
+    const tweets = xhr.response.response;
+    console.log(tweets);
+  }
+  xhr.send();
+</script>
+
+{% endblock content %}
